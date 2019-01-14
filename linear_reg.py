@@ -70,13 +70,6 @@ if __name__ == '__main__':
     plt.title('Linear Regression validation on {} folds'.format(N_FOLDS))
     plt.plot(y, '#aacdff', label='origin')
     for i, result in enumerate(results):
-        # plt.plot(y, '#aacdff', label='origin')
-        # plt.plot(result['train'].index[LOOK_BACK:], result['train'].predict.reshape(-1),
-        #          label='train prediction on {} fold (RMSE={:.2f})'.format(str(i+1), result['train'].score))
-
-        # error = y[result['test'].index[LOOK_BACK:]] - result['test'].predict.reshape(-1)
-        # plt.plot(result['test'].index[LOOK_BACK:], error, label='Error on {} test fold'.format(str(i + 1)))
-
         plt.plot(result['test'].index[LOOK_BACK:], result['test'].predict.reshape(-1),
                  label='test prediction on {} fold (RMSE={:.2f})'.format(str(i+1), result['test'].score))
     plt.legend()
